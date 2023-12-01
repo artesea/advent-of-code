@@ -1,6 +1,6 @@
 # advent-of-code
 
-Attempting to track my PHP* code for Advent of Code https://adventofcode.com/
+Attempting to track my PHP*/JS (for 2023) code for Advent of Code https://adventofcode.com/
 
 Files are named using two digits for the date and then with optional a/b if they are solving the first or second part, eg `08a.php`
 

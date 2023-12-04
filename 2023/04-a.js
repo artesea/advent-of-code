@@ -1,0 +1,29 @@
+const fs = require('node:fs');
+let answerA = 0;
+try {
+    const input = fs.readFileSync('04-input.txt', 'utf8');
+    const lines = input.split("\r\n");
+    for(let row = 0; row<lines.length; row++) {
+        const line = lines[row];
+        console.log(line);
+        //Card   1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
+        const cardId = line.match(/\d+/)[0];
+        const winningNumbers = line.split(":")[1].split("|")[0].match(/(\d+)/g);
+        const myNumbers = line.split(":")[1].split("|")[1].match(/(\d+)/g);
+        let found = 0;
+        winningNumbers.forEach((winningNumber) => {
+            if( myNumbers.includes(winningNumber)) {
+                found++;
+            }
+        });
+        let lineScore = 0;
+        if(found > 0) lineScore = 2**(found-1);
+        console.log({line,cardId,winningNumbers,myNumbers,found,lineScore});
+        answerA += lineScore;
+    };
+}
+catch(e) {
+    console.error(e);
+}
+
+console.log("The answer to part 1 is:", answerA);

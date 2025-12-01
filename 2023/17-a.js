@@ -2,7 +2,7 @@ const st = new Date().getTime();
 const fs = require('node:fs');
 let answer = 0;
 try {
-    const input = fs.readFileSync('16-input.txt', 'utf8').trim();
+    const input = fs.readFileSync('17-sample.txt', 'utf8').trim();
     const grid = input.split("\r\n").map((row) => row.split(""));
 
     let starts = [];

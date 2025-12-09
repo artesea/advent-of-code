@@ -1,4 +1,6 @@
 import math
+from datetime import datetime, timedelta
+start_ts = datetime.now()
 with open("2025/08-input.txt") as in_file:
     lines = in_file.read().strip().split("\n")
 
@@ -15,6 +17,7 @@ perms = []
 for a in range(len(rows) - 1):
     for b in range(a+1, len(rows)):
         d = math.sqrt((rows[b][0] - rows[a][0])**2 + (rows[b][1] - rows[a][1])**2 + (rows[b][2] - rows[a][2])**2)
+        #d = (rows[b][0] - rows[a][0])**2 + (rows[b][1] - rows[a][1])**2 + (rows[b][2] - rows[a][2])**2
         perms.append([d, a, b])
 perms.sort()
 
@@ -41,5 +44,7 @@ for i in range(len(perms)):
 print(f"The last two boxes were {rows[perms[i][1]]} and {rows[perms[i][2]]}")
 
 answer = rows[perms[i][1]][0] * rows[perms[i][2]][0]
+end_ts = datetime.now()
+diff = (end_ts - start_ts) / timedelta(seconds=1)
 
-print(f"The answer is {answer}")
+print(f"The answer is {answer} and took {diff} seconds")
